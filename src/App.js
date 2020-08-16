@@ -1,26 +1,28 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Header from "./components/Header/Header";
+import {compose} from "redux";
+import {Redirect, Route, withRouter} from "react-router-dom";
+import {connect} from "react-redux";
+import CityContainer from "./components/City/CityContainer";
+import ListContainer from "./components/List/ListContainer";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+
+    render() {
+        return <div className="app-wrapper">
+            <Header/>
+            <Redirect to={"/list"}/>
+            <Route path="/city"
+                   render={() => <CityContainer store={this.props.store}/>}/>
+            <Route path="/list"
+                   render={() => <ListContainer />}/>
+        </div>
+    }
 }
 
-export default App;
+const mapStateToProps = (state) => ({})
+
+export default compose(
+    withRouter,
+    connect(mapStateToProps, {}))(App);

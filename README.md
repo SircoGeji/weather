@@ -1,3 +1,9 @@
+## Общая информация по проекту.
+
+Приложение отображает метео-сводку по конкретному городу земного шара.
+Первая страница - список городов, в котором требуется выбрать нужный.
+Вторая страница - погодная сводка по городу в конкретный день, присылаемый сервисом https://openweathermap.org/
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
